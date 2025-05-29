@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice {{.InvoiceNumber}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .total {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Invoice #{{.InvoiceNumber}}</h1>
+    <p><strong>Date:</strong> {{.InvoiceDate}}</p>
+    <p><strong>Bill To:</strong> {{.BillTo}}</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .Items}}
+            <tr>
+                <td>{{.Description}}</td>
+                <td>{{.Quantity}}</td>
+                <td>{{printf "%.2f" .Price}}</td>
+                <td>{{.Total}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+
+    <p class="total"><strong>Subtotal:</strong> {{.Subtotal}}</p>
+    <p class="total"><strong>Tax (10%):</strong> {{.Tax}}</p>
+    <p class="total"><strong>Total:</strong> {{.Total}}</p>
+</body>
+</html>
