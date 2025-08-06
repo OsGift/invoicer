@@ -4,29 +4,6 @@ A simple web application built with [Gin](https://github.com/gin-gonic/gin) and 
 
 ---
 
-## 📁 Project Structure
-
-.
-├── Dockerfile
-├── go.mod
-├── go.sum
-├── main.go
-├── README.md
-├── static/
-│ ├── css/
-│ │ └── style.css
-│ └── js/
-│ └── script.js
-└── templates/
-├── index.html
-└── invoice.html
-
-yaml
-Copy
-Edit
-
----
-
 ## 🔧 Prerequisites
 
 - Go 1.18 or newer  
@@ -39,7 +16,7 @@ Edit
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/invoice-pdf-generator.git
+git clone https://github.com/OsGift/invoicer.git
 cd invoice-pdf-generator
 Install Dependencies
 
@@ -94,8 +71,6 @@ go-wkhtmltopdf generates a PDF from the HTML and sends it to the client.
 To build and run using Docker, add a Dockerfile like below:
 
 dockerfile
-Copy
-Edit
 FROM golang:1.20-alpine AS builder
 WORKDIR /app
 COPY go.mod go.sum ./
@@ -135,4 +110,4 @@ Styling issues: Confirm style.css and script.js paths are served under /static.
 🎯 License & Author
 MIT License
 
-Created by Your Name / GitHub Profile
+Created by Gift and Os / https://github.com/OsGift/invoicer
